@@ -1,0 +1,84 @@
+
+/*  U I  A N I M A T I O N S  */
+.uiStart {
+    animation:uiStart;
+    animation-timing-function: ease-out;
+    animation-duration: 345ms;
+}
+
+.uiNext {
+    animation:uiPass;
+    animation-timing-function: ease-out;
+    animation-duration: 345ms;
+}
+
+.uiFinish {
+    animation:uiFinish;
+    animation-timing-function: ease-in;
+    animation-duration: 345ms;
+}
+
+@keyframes uiStart {
+    from {
+        transform: translateX(-20%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+
+    }
+}
+
+@keyframes uiPass {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(20%);
+        opacity: 0;
+    }
+}
+
+@keyframes uiFinish {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(20%);
+        opacity: 0;
+    }
+}
+
+.backgroundStart {
+    animation: bgStart;
+    animation-duration: .6s;
+}
+
+.backgroundFinish {
+    animation: bgFinish;
+    animation-duration: .6s;
+}
+
+@keyframes bgStart {
+    from {
+        background-color: transparent;
+        backdrop-filter: blur(0);
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0.46);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+}
+
+@keyframes bgFinish {
+    from {
+        background-color: rgba(0, 0, 0, 0.46);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+    to {
+        background-color: transparent;
+        backdrop-filter: blur(0);
+    }
+}

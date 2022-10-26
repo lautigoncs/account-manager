@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="test">test - create new user</button>
+    <button id="test2">test - display all users</button>
+    <div id="testArea">
+
+    </div>
+    <script>
+        const accountList = [{
+            name: 'pica',
+            password: 'holaaa123',
+            img: 'https://placedog.net/200/200',
+            id: 1
+        },{
+            name: 'champion',
+            password: 'holaaa123',
+            img: 'https://placedog.net/200/200',
+            id: 2
+        }
+    ]
+
+//BUILD CARDS 
+    function refresh(accounts) {
+        document.getElementById("testArea").innerHTML = accounts
+        .map((element) => `
+            <p>${element.name}</p>
+            <p type="password">${element.password}</p>
+            <p>${element.id}</p>
+        `
+        )
+        .join("");
+}
+
+
+    document.getElementById('test').onclick = () => {
+        let userName =  prompt("nombrecito");
+        let userPassword = prompt('contraseñita');
+        let userImg = prompt('fotito');
+
+        accountList.push({
+            name: userName, 
+            password: userPassword, 
+            img: userImg, 
+            id: (accountList.length + 1)})
+        refresh(accountList);
+        }
+    </script>
+
+
+</body>
+</html>

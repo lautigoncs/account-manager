@@ -1,0 +1,349 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: rgb(47, 47, 47);
+  height: 100vh;
+}
+
+/* M A I N */
+h1 {
+  color: whitesmoke;
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 3rem;
+  text-shadow: 0 0 5px black;
+  animation-name: titulo;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  padding: 4%;
+}
+
+@keyframes titulo {
+  0% {
+    transform: skew(0, 5deg);
+  }
+  50% {
+    transform: skew(0, -5deg);
+  }
+  100% {
+    transform: skew(0, 5deg);
+  }
+}
+#accountList {
+  display: flex;
+  padding: 1%;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.account {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  padding: 1%;
+  margin: 0.5%;
+  background-color: rgba(0, 0, 0, 0.334);
+  border-radius: 5%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.31);
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.accountImage {
+  border-radius: 5%;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.input, .button {
+  background-color: rgba(255, 255, 255, 0.275);
+  border: none;
+  border-radius: 20px;
+  padding: 2%;
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 2%;
+  transition: transform 150ms, background-color 150ms;
+  cursor: pointer;
+}
+.input:hover, .button:hover {
+  transform: scale(105%);
+  background-color: rgba(255, 255, 255, 0.318);
+}
+.input:active, .button:active {
+  transform: scale(98%);
+  background-color: rgba(255, 255, 255, 0.205);
+}
+
+.buttonRow {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.108);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+  margin: 1% 0;
+  padding: 1%;
+}
+
+.button {
+  background-color: transparent;
+  font-size: 1.4rem;
+  border-radius: 50px;
+  color: white;
+  padding: 1% 3%;
+  margin: 0;
+}
+.button:hover {
+  background-color: rgba(255, 255, 255, 0.082);
+}
+.button:active {
+  background-color: rgba(255, 255, 255, 0.021);
+}
+
+#deleteButton {
+  background-color: transparent;
+  padding: 1% 3%;
+  font-size: 1.4rem;
+  text-align: center;
+  border-radius: 50px;
+  border: none;
+  color: white;
+  transition: transform 200ms, background-color 200ms;
+}
+#deleteButton:hover {
+  transform: scale(105%);
+  cursor: pointer;
+  background-color: rgba(251, 0, 0, 0.209);
+}
+#deleteButton:active {
+  transform: scale(95%);
+  background-color: rgba(251, 0, 0, 0.365);
+}
+
+/*  U I */
+.uiSpaceCurrent {
+  position: absolute;
+  height: 100%;
+  z-index: 99;
+  width: 100%;
+}
+
+#uiBackground {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.46);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#ui, #uiDelete {
+  height: 48%;
+  width: 38%;
+  background-color: rgba(118, 118, 118, 0.384);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.486);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+}
+#ui p, #uiDelete p {
+  color: white;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 2.8rem;
+  text-align: center;
+}
+#ui input, #uiDelete input {
+  cursor: text;
+  color: white;
+  width: 75%;
+}
+#ui button, #uiDelete button {
+  letter-spacing: 2px;
+}
+
+#usernameInput:active, #usernameInput:hover {
+  transform: scale(100%);
+}
+
+/*  U I  A N I M A T I O N S  */
+.uiStart {
+  animation: uiStart;
+  animation-timing-function: ease-out;
+  animation-duration: 345ms;
+}
+
+.uiNext {
+  animation: uiPass;
+  animation-timing-function: ease-out;
+  animation-duration: 345ms;
+}
+
+.uiFinish {
+  animation: uiFinish;
+  animation-timing-function: ease-in;
+  animation-duration: 345ms;
+}
+
+@keyframes uiStart {
+  from {
+    transform: translateX(-20%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes uiPass {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(20%);
+    opacity: 0;
+  }
+}
+@keyframes uiFinish {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(20%);
+    opacity: 0;
+  }
+}
+.backgroundStart {
+  animation: bgStart;
+  animation-duration: 0.6s;
+}
+
+.backgroundFinish {
+  animation: bgFinish;
+  animation-duration: 0.6s;
+}
+
+@keyframes bgStart {
+  from {
+    background-color: transparent;
+    backdrop-filter: blur(0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.46);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+}
+@keyframes bgFinish {
+  from {
+    background-color: rgba(0, 0, 0, 0.46);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  to {
+    background-color: transparent;
+    backdrop-filter: blur(0);
+  }
+}
+.accountList {
+  width: 75%;
+  height: 75%;
+  overflow: scroll;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 1%;
+  margin: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+#uiDelete {
+  position: absolute;
+  z-index: 99;
+  height: 70%;
+  width: 70%;
+}
+
+.deleteAccountCard {
+  background-color: rgb(116, 116, 116);
+  width: 95%;
+  height: 7vw;
+  display: flex;
+  padding: 1%;
+  margin-bottom: 1%;
+  border-radius: 5px;
+}
+.deleteAccountCard img {
+  height: 100%;
+}
+.deleteAccountCard .deleteAccountSide {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.deleteAccountCard .deleteAccountSide h3 {
+  text-align: center;
+  font-size: 2rem;
+  font-family: "Josefin Sans", sans-serif;
+  color: white;
+}
+.deleteAccountCard .deleteAccountSide button {
+  background-color: rgba(251, 0, 0, 0.491);
+  padding: 1% 3%;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 50px;
+  border: none;
+  color: white;
+  transition: transform 200ms, background-color 200ms;
+}
+.deleteAccountCard .deleteAccountSide button:hover {
+  transform: scale(105%);
+  cursor: pointer;
+  background-color: rgba(251, 0, 0, 0.78);
+}
+.deleteAccountCard .deleteAccountSide button:active {
+  transform: scale(95%);
+  background-color: rgba(251, 0, 0, 0.365);
+}
+
+#deleteBackground {
+  position: absolute;
+  height: 100%;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.46);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.closeArea {
+  position: absolute;
+  height: 100%;
+  z-index: 98;
+  width: 100%;
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,52 @@
+/*  U I */
+.uiSpaceCurrent {
+    position: absolute;
+    height: 100%;
+    z-index: 99;
+    width: 100%;
+}
+
+#uiBackground {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.46);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#ui, #uiDelete {
+    height: 48%;
+    width: 38%;
+    background-color: rgba(118, 118, 118, 0.384);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.486);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    p {
+        color: white;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 2.8rem;
+        text-align: center;
+    }
+    input {
+        cursor: text;
+        color: white;
+        width: 75%;
+    }
+    button {
+        letter-spacing: 2px;
+    }
+}
+
+#usernameInput {
+    &:active,&:hover {
+        transform: scale(100%);
+    }
+}
