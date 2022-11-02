@@ -6,11 +6,17 @@
     animation-duration: 345ms;
 }
 
-.uiNext {
+.uiFirstState {
     animation:uiPass;
     animation-timing-function: ease-out;
     animation-duration: 345ms;
 }
+.uiSecondState {
+    animation:uiEnter;
+    animation-timing-function: ease-out;
+    animation-duration: 345ms;
+}
+
 
 .uiFinish {
     animation:uiFinish;
@@ -31,11 +37,19 @@
 
 @keyframes uiPass {
     from {
-        transform: translateX(0);
+        opacity: 100%;
     }
     to {
-        transform: translateX(20%);
         opacity: 0;
+    }
+}
+
+@keyframes uiEnter {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100%;
     }
 }
 
@@ -51,12 +65,12 @@
 
 .backgroundStart {
     animation: bgStart;
-    animation-duration: .6s;
+    animation-duration: 345ms;
 }
 
 .backgroundFinish {
     animation: bgFinish;
-    animation-duration: .6s;
+    animation-duration: 345ms;
 }
 
 @keyframes bgStart {
@@ -80,5 +94,6 @@
     to {
         background-color: transparent;
         backdrop-filter: blur(0);
+        -webkit-backdrop-filter: blur(0px);
     }
 }
