@@ -114,26 +114,19 @@
     width: 32px;
     height: 32px;
     text-align: center;
-    position: relative;
+    position: absolute;
     top: -14px;
-    right: -107px;
+    right: -16px;
     font-family: "Josefin Sans", sans-serif;
-    display: none;
-    p {
-        position: relative;
-        z-index: 2;
-        font-size: 180%;
+    background-color: rgb(169, 0, 0);
+    border-radius: 100%;
+    border: solid 1px black;
+    z-index: 1;
+    &:hover {
+        cursor: pointer;
     }
 }
 
-.deleteXButtonBackground {
-    background-color: white;
-    border-radius: 100%;
-    width: 32px;
-    height: 32px;
-    position: absolute;
-    z-index: 1;
-}
 
 .invisible {
     display: none;

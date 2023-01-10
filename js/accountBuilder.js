@@ -16,11 +16,8 @@ const accountList = storageValue;
 function refresh(accounts) {
     // build a card for each element in the array.
     space.innerHTML = accounts.map((element) => `
-            <div class="account">
-                <a class="deleteXButton invisible">
-                    <p>X</p>
-                    <div class="deleteXButtonBackground"></div>
-                </a>
+            <div class="account account${element.id}">
+                <button class="deleteXButton invisible" onClick="deleteAccountButton(${element.id})">X</button>
                 <img src="${element.img}" class="accountImage">
                 <input type="text" value="${element.name}" class="input" id="name${element.id}" readonly>
                 <input type="password" value="${element.password}" class="input" id="password${element.id}" readonly>

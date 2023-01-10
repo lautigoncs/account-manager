@@ -11,6 +11,10 @@ body {
     height: 100vh;
 }
 
+.invisible {
+    visibility: hidden;
+}
+
 @import "mainpage.scss";
 @import "uistyle.scss";
 @import "uianimations.scss";
