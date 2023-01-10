@@ -1,34 +1,49 @@
 const deleteButton = document.getElementById('deleteButton');
-const xButton = document.querySelectorAll('.deleteXButton');
-// const deleteUI = document.getElementById('deleteBackground');
-// const deleteAccountList = document.getElementsByClassName('accountList')[0];
-
-// deleteAccountsListBuilder();
-
-// deleteButton.onclick = () => {
-//     deleteUI.style.display = 'flex';
-//     document.getElementsByClassName('closeArea')[0].onclick = () => {
-//         deleteUI.style.display = 'none';
-//     }
-// }
-
-// function deleteAccountsListBuilder() {
-//     deleteAccountList.innerHTML = accountList.map((element) => `
-//     <div class="deleteAccountCard">
-//         <img src="${element.img}" class="deleteAccountImg">
-//         <div class="deleteAccountSide">
-//             <h3>${element.name}</h3>
-//             <button class="deleteDeleteButton deleteButton" id="deleteButton${element.id}">Borrar</button>
-//         </div>
-//     </div>
-// `
-// )
-// .join("");
-// }
-
+const deleteUI = document.getElementById('deleteBackground');
+const deleteAccountList = document.getElementsByClassName('accountList')[0];
 
 deleteButton.onclick = () => {
-    xButton.forEach((element) => {
-        element.classList.toggle('invisible');
-    })
+    // When the button is clicked, the accounts show up in the menu.
+    deleteAccountsListBuilder();
+    // The menu appears.
+    deleteUI.style.display = 'flex';
+    // You can click the background to close the menu as well.
+    document.getElementsByClassName('closeArea')[0].onclick = () => {
+        deleteUI.style.display = 'none';
+    }
+}
+
+function deleteAccountsListBuilder() {
+    // For each element in the array, a card is created with its unique image, name and id.
+    deleteAccountList.innerHTML = accountList.map((element) => `
+    <div class="deleteAccountCard card${element.id}">
+        <img src="${element.img}" class="deleteAccountImg">
+        <div class="deleteAccountSide">
+            <h3>${element.name}</h3>
+            <h6>id : ${element.id}</h6>
+            <button class="deleteDeleteButton deleteButton" id="deleteButton${element.id}" onClick="deleteAccountButton(${element.id})">Borrar</button>
+        </div>
+    </div>
+`
+)
+.join("");
+}
+
+function deleteAccountButton(i) {
+    removeAccount(i);
+    console.log('Cuenta Borrada')
+    console.log(accountList);
+    refresh(accountList);
+    localStorage.setItem('storageValue', JSON.stringify(accountList));
+    deleteAccountsListBuilder();
+}
+
+function removeAccount(id) {
+    const objWithIdIndex = accountList.findIndex((obj) => obj.id === id);
+
+    if (objWithIdIndex > -1) {
+        accountList.splice(objWithIdIndex, 1);
+    }
+
+    return accountList;
 }

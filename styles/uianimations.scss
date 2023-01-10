@@ -97,3 +97,13 @@
         -webkit-backdrop-filter: blur(0px);
     }
 }
+
+.disappear {
+    animation: disappear;
+    animation-duration: 345ms;
+}
+
+@keyframes disappear {
+    from {opacity: 100%;}
+    to {opacity: 0;}
+}

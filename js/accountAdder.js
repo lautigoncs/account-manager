@@ -86,10 +86,20 @@ function finish() {
 }
 
 function pushAccount() {
+    let preID = '';
+    if (accountList.length == 0) {
+        preID = 1;
+        console.log(preID);
+    } else {
+        preID = accountList[accountList.length - 1].id + 1;
+        console.log(preID);
+    }
+
     accountList.push({
         name: username,
         password: password,
         img: img,
-        id: (accountList.length + 1)
+        id: preID
     })
+
 }
